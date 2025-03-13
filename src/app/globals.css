@@ -14,13 +14,150 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
+    --background: #ffffff !important; /* Force light background */
+    --foreground: #000000 !important; /* Force dark text */
   }
 }
+
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jetbrains-mono), sans-serif;
+}
+
+
+/*font Settings*/
+
+@layer components {
+  /* .hero-content-left-title {
+    @apply text-[24px] font-medium lg:text-[40px];
+  }
+  .hero-content-right-title{
+    @apply text-[24px] font-medium lg:text-[32px]
+  } */
+  .hero-title{
+    @apply text-[40px] sm:text-[80px] font-semibold md:text-[100px] lg:text-[216px]
+  }
+  .common-title{
+    @apply text-[40px] font-medium md:text-[50px] lg:text-[80px]
+  }
+  .common-text{
+    @apply  text-[14px];
+    letter-spacing: -.03em;
+  }
+  .about-title{
+    @apply text-[22px] font-medium lg:text-[40px]
+  }
+  .counter-title{
+    @apply text-[20px] font-medium sm:text-[22px] md:text-[24px]
+  }
+  .counter-item-num{
+    @apply text-[40px] font-medium lg:text-[100px]
+  }
+  .experience-title{
+    @apply font-medium  overflow-visible text-clip text-center text-[22px] lg:text-[24px];
+  }
+  .experience-text{
+    @apply overflow-visible text-clip text-center text-[14px] lg:text-[18px];
+  }
+
+}
+/*section settings*/
+@layer components {
+  .hero-section{
+    @apply pt-[40px] md:pt-[102px];
+  }
+  .project-section{
+    @apply pt-[40px] md:pt-[100px]
+  }
+  .about-section{
+    @apply pt-[40px] pb-[40px] lg:pt-[90px] lg:pb-[90px]
+
+  }
+  .count-section,.experience-section{
+    @apply pt-[40px] pb-[40px] lg:pt-[90px] lg:pb-[90px]
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
+
+.float-up {
+  animation: floatUp 0.8s cubic-bezier(0, 0, 0.32, 1) forwards;
+}
+
+.float-up-text {
+  animation: floatUp 1s cubic-bezier(0, 0, 0.32, 1) forwards;
+}
+.float-up-hero {
+  animation: floatUp 1.2s cubic-bezier(0, 0, 0.32, 1) forwards;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.4; /* Slow fade at the start */
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1; /* Fast fade at the end */
+  }
+}
+
+@keyframes fadeSlideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6; /* Fast fade at the start */
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0; /* Slow fade at the end */
+  }
+}
+
+/* Utility Classes for Animations */
+.animate-fadeSlideIn {
+  animation: fadeSlideIn 0.7s ease-out forwards;
+}
+
+.animate-fadeSlideOut {
+  animation: fadeSlideOut 0.7s ease-in forwards;
+}
+
+.responsive-text {
+  white-space: nowrap; /* Prevents text from breaking to a new line */
+  overflow: visible; /* Ensures text is always visible */
+  text-overflow: clip; /* Avoids truncation like '...' */
+  font-size: clamp(12px, 2vw, 20px);
+  letter-spacing: -.01em;
+}
+.hero-name {
+  font-size: clamp(3rem, 20vw, 15rem);
+  font-weight: 600;
+}
+.hero-content-left-title, .hero-content-right-title {
+  font-size:clamp(24px, 15vw, 40px);
+  font-weight: 500;
+}
+.hero-content-right-text{
+  font-size:14px;
+  font-weight: 500;
 }
