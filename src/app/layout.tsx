@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/component/Navbar";
+import Navbar from "@/components/Navbar";
+import MyFooter from "@/components/MyFooter";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"], 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <Navbar />
      
       <main>{children}</main>
+      <MyFooter />
       </body>
     </html>
   );

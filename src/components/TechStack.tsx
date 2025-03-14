@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import InViewAnimateWrapper from "./InViewAnimateWrapper";
 
 // Dynamically import icons to prevent hydration mismatches
 const FaPython = dynamic(() => import("react-icons/fa").then((mod) => mod.FaPython), { ssr: false });
@@ -63,27 +64,31 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Title */}
-        <h2 className="text-5xl font-bold text-gray-900">Tech Stack</h2>
-        <p className="text-lg text-gray-600 mt-3">
+        <InViewAnimateWrapper animate="float-up" options={{threshold:0.2,triggerOnce: true}}>
+
+
+        <h2 className="common-title">Tech Stack</h2>
+        <p className="commen-text  mt-3">
           Technologies I work with to build scalable and high-performance applications.
         </p>
+    
 
         {/* Tech Stack Grid */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {techStack.map((tech, index) => (
             <div
               key={index}
-              className="flex items-center justify-start border border-gray-300 p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 bg-white"
+              className="flex items-center justify-start border border-gray-300 p-4 gap-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 bg-white"
             >
-              <span className="text-4xl mr-4">{tech.icon}</span>
-              <span className="text-xl font-semibold">{tech.name}</span>
+              <span className="text-3xl">{tech.icon}</span>
+              <span className="text-md font-semibold">{tech.name}</span>
             </div>
           ))}
         </div>
+        </InViewAnimateWrapper>
       </div>
-    </section>
+
   );
 }

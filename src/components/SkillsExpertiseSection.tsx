@@ -1,7 +1,7 @@
 "use client"
 import SkillsSection from "./SkillsSeaction";
 import { useInView } from "react-intersection-observer";
-
+import { ABOUT } from "@/app/const";
 export default function SkillsExpertiseSection() {
   const { ref, inView } = useInView({
     threshold: 0.4,
@@ -25,10 +25,7 @@ export default function SkillsExpertiseSection() {
             inView ? "float-up-text" : "opacity-0"
           }`}
         >
-          Over the years, I’ve honed a versatile skill set that bridges the gap
-          between backend efficiency and frontend experience. My expertise lies
-          in designing scalable, high-performance software solutions while
-          ensuring seamless functionality
+         {ABOUT.EXPERTISE_TEXT}
         </p>
       </div>
       <div 

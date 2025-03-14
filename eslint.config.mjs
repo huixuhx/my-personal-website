@@ -11,6 +11,18 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "react/no-unescaped-entities": "off", // ✅ Disable error for unescaped quotes (e.g., ")
+    },
+    ignores: [
+      "**/*.stories.tsx", 
+      "**/*.stories.ts", 
+      "**/*.stories.js", 
+      "**/*.stories.jsx",
+      "src/stories/**"
+    ], // ✅ Ignore Storybook files
+  },
 ];
 
 export default eslintConfig;

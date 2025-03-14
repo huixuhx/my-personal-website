@@ -1,7 +1,8 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import NavbarButton from "@/app/component/NavbarButton";
+import React, { useState } from "react";
+import NavbarButton from "@/components/NavbarButton";
 import Link from "next/link";
+import ContactButton from "./ContactButton";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,16 +22,16 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="w-full flex items-center justify-between px-4 h-20 bg-white">
+    <nav className="container mx-auto flex items-center justify-between px-4 h-20 bg-white max-w-6xl">
       {/* Left Side - Logo */}
-      <div className="text-[22px] font-bold">Hui.Xu</div>
+      <Link href="/"><div className="text-[22px] font-bold">Hui.Xu</div></Link>
 
       <div className="flex items-center md:hidden">
         <NavbarButton toggleMenu={toggleMenu} menuOpen={menuOpen} />
       </div>
       {/* Center Menu - Only Visible on md+ */}
       <div className="hidden md:flex flex-1 justify-center">
-        <ul className="flex gap-x-6">
+        <ul className="flex gap-x-8">
         <li>
             <Link href="/">
               <p>Home</p>
@@ -58,7 +59,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-
+      <ContactButton className="hidden md:block" size="small"/>
       {/* Mobile Menu with Keyframe Animation */}
      <div
         className={`absolute w-full top-20 left-0 border-t border-gray-200 bg-white shadow-lg md:hidden z-50 

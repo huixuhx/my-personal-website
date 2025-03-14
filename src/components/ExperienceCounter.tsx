@@ -2,19 +2,13 @@
 
 
 import { useInView } from "react-intersection-observer";
-import RollingCounter from "@/app/component/RollingCounter";
-import { useState, useEffect } from "react";
-import IconRenderer from "@/app/component/IconRenderer";
-
+import RollingCounter from "@/components/RollingCounter";
+import IconRenderer from "@/components/IconRenderer";
+import {ABOUT} from"@/app/const"
 const ExperienceCounter=() => {
 
-  const counter = [
-    { title: "Years Experience", digit: [2, 10], icon: "bag" },
-    { title: "Projects Completed", digit: [3, 0, 10], icon: "smile" },
-    { title: "Different Industry", digit: [4, 10], icon: "database" },
-    { title: "People Worked With", digit: [1, 0, 0, 10], icon: "handshake" },
-  ];
-  const { ref, inView, entry } = useInView({
+  const counter = ABOUT.COUNTER
+  const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0.3,
     triggerOnce:true,

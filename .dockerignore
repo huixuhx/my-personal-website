@@ -1,0 +1,6 @@
+# Ignore Storybook files
+**/*.stories.tsx
+**/*.stories.ts
+**/*.stories.js
+**/*.stories.jsx
+.storybook/
